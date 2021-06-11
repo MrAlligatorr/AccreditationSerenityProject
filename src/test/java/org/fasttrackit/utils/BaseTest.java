@@ -12,7 +12,7 @@ public class BaseTest {
     private WebDriver driver;
 
     @Before
-    public void maximize(){
+    public void maximize() {
         driver.manage().window().maximize();
     }
 }

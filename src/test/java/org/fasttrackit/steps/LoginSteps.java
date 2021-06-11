@@ -1,51 +1,93 @@
 package org.fasttrackit.steps;
 
 import net.thucydides.core.annotations.Step;
-import org.fasttrackit.pages.AccountPage;
 import org.fasttrackit.pages.HomePage;
-import org.fasttrackit.pages.LoginPage;
+import org.fasttrackit.pages.LostPasswordPage;
+import org.fasttrackit.pages.MyAccountPage;
+import org.fasttrackit.utils.ExternalSite;
 import org.junit.Assert;
 
 public class LoginSteps {
 
     private HomePage homePage;
-    private LoginPage loginPage;
-    private AccountPage accountPage;
+    private MyAccountPage myAccountPage;
+    private ExternalSite externalSite;
+    private LostPasswordPage lostPasswordPage;
 
     @Step
-    public void navigateToLogin(){
+    public void navigateToMyAccount() {
         homePage.open();
-        homePage.clickAccountLink();
-        homePage.clickLogInLink();
+        homePage.clickOnTheMyAccountButton();
     }
 
     @Step
-    public void enterCredentials(String email, String password){
-        loginPage.setEmailField(email);
-        loginPage.setPasswordField(password);
+    public void enterCredentials(String username, String password) {
+        myAccountPage.setLoginUsernameTextField(username);
+        myAccountPage.setLoginPasswordTextField(password);
     }
 
     @Step
-    public void clickLogIn(){
-        loginPage.clickLoginButton();
+    public void clickOnTheLoginButton() {
+        myAccountPage.clickOnTheLoginButton();
     }
 
     @Step
-    public void checkUserIsLoggedIn(String message){
-        accountPage.verifyWelcomeMessage(message);
-        Assert.assertTrue(accountPage.isWelcomeTextDisplayed(message));
-        Assert.assertEquals(message.toLowerCase(), accountPage.getWelcomeText().toLowerCase());
+    public void checkUserIsLoggedIn(String value) {
+        Assert.assertEquals(value, myAccountPage.checkLoginSuccessfulText());
     }
 
     @Step
-    public void doLogin(String email, String pass){
-        navigateToLogin();
-        enterCredentials(email,pass);
-        clickLogIn();
+    public void checkEmptyUsernameErrorText(String value) {
+        Assert.assertEquals(value, myAccountPage.checkErrorText());
     }
 
     @Step
-    public void checkNotLoggedIn(){
-        loginPage.checkInvalidCredentialsMessage();
+    public void checkEmptyPasswordErrorText(String value) {
+        Assert.assertEquals(value, myAccountPage.checkErrorText());
+    }
+
+    @Step
+    public void enterUsername(String value) {
+        myAccountPage.setLoginUsernameTextField(value);
+    }
+
+    @Step
+    public void checkInvalidEmailAddressErrorText(String value) {
+        Assert.assertEquals(value, myAccountPage.checkErrorText());
+    }
+
+    @Step
+    public void checkInvalidPasswordErrorText(String value) {
+        Assert.assertEquals(value, myAccountPage.checkErrorText());
+    }
+
+    @Step
+    public void clickOnTheRememberMeButton() {
+        myAccountPage.clickOnTheRememberMeButton();
+    }
+
+    @Step
+    public void leaveTheSite() {
+        externalSite.open();
+    }
+
+    @Step
+    public void clickOnTheLostYourPasswordButton() {
+        myAccountPage.clickOnTheLostYourPasswordButton();
+    }
+
+    @Step
+    public void setUsernameFieldOnTheLostYourPasswordPage(String value) {
+        lostPasswordPage.setUsernameTextField(value);
+    }
+
+    @Step
+    public void clickOnTheResetPasswordButton() {
+        lostPasswordPage.clickOnResetPasswordButton();
+    }
+
+    @Step
+    public void checkTheResetConfirmationText(String value) {
+        Assert.assertEquals(value, lostPasswordPage.getConfirmationText());
     }
 }
