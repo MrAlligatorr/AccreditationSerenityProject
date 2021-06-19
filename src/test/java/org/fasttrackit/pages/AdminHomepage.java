@@ -3,7 +3,6 @@ package org.fasttrackit.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.interactions.Actions;
 
 public class AdminHomepage extends PageObject {
 
@@ -21,6 +20,9 @@ public class AdminHomepage extends PageObject {
 
     @FindBy(css = "li#wp-admin-bar-logout > .ab-item")
     private WebElementFacade logOutButton;
+
+    @FindBy(css = ".menu-icon-comments div:nth-child(3)")
+    private WebElementFacade commentsButton;
 
 
     public String getWelcomeText() {
@@ -42,5 +44,4 @@ public class AdminHomepage extends PageObject {
     public void clickOnTheLogOutButton() {
         logOutButton.waitUntilVisible().click();
     }
-
 }

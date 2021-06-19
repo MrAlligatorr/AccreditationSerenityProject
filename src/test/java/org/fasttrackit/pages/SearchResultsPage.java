@@ -16,20 +16,22 @@ public class SearchResultsPage extends PageObject {
     private WebElementFacade productNameButton;
 
 
-    public boolean checkItemIsFound(String value){
-        for (WebElementFacade element: productNameList){
-            if (element.findElement(By.cssSelector(".entry-title a")).getText().equalsIgnoreCase(value)){
+    public boolean checkItemIsFound(String value) {
+        for (WebElementFacade element : productNameList) {
+            if (element.findElement(By.cssSelector(".entry-title a")).getText().equalsIgnoreCase(value)) {
                 return true;
             }
-        }return false;
+        }
+        return false;
     }
 
-    public boolean clickOnTheItem(String value){
-        for (WebElementFacade element: productNameList){
-            if (element.findElement(By.cssSelector(".entry-title a")).getText().equalsIgnoreCase(value)){
+    public boolean clickOnTheItem(String value) {
+        for (WebElementFacade element : productNameList) {
+            if (element.findElement(By.cssSelector(".entry-title a")).getText().equalsIgnoreCase(value)) {
                 element.findElement(By.cssSelector(".entry-title a")).click();
                 return true;
             }
-        }return false;
+        }
+        return false;
     }
 }

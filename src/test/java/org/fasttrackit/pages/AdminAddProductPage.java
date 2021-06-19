@@ -18,8 +18,10 @@ public class AdminAddProductPage extends PageObject {
     @FindBy(css = "[aria-label] #message:nth-child(4) p")
     private WebElementFacade productPublishedText;
 
-    String productNameMemo = "";
-    String productPriceMemo = "";
+
+    private static String productNameMemo = "";
+    private static String productPriceMemo = "";
+
 
     public void setProductNameTextField(String value) {
         productNameMemo = value;
@@ -32,6 +34,8 @@ public class AdminAddProductPage extends PageObject {
     }
 
     public void clickOnThePublishButton() {
+        waitForAngularRequestsToFinish();
+        waitABit(2000);
         clickOn(publishButton);
     }
 
@@ -45,5 +49,9 @@ public class AdminAddProductPage extends PageObject {
 
     public String getProductPriceMemo() {
         return productPriceMemo;
+    }
+
+    public void waitForThePublishedSuccessfulText() {
+        waitFor(productPublishedText);
     }
 }

@@ -16,15 +16,16 @@ public class ProductPage extends PageObject {
     private WebElementFacade viewCartButton;
 
 
-    public void clickOnTheAddToCartButton(){
+    public void clickOnTheAddToCartButton() {
         clickOn(addToCartButton);
     }
 
-    public String getAddedToCartSuccessfulText(){
-        return addedToCartSuccessfulText.getText();
+    public String getAddedToCartSuccessfulText() {
+        waitForAngularRequestsToFinish();
+        return addedToCartSuccessfulText.getText().replaceAll("View cart" + "\n", "");
     }
 
-    public void clickOnTheViewCartButton(){
+    public void clickOnTheViewCartButton() {
         clickOn(viewCartButton);
     }
 }

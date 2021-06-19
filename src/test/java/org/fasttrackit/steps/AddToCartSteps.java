@@ -12,6 +12,7 @@ public class AddToCartSteps {
     private CartPage cartPage;
     private AdminAddProductPage adminAddProductPage;
 
+
     @Step
     public void clickOnAddToCart() {
         productPage.clickOnTheAddToCartButton();
@@ -19,8 +20,9 @@ public class AddToCartSteps {
 
     @Step
     public void checkForAddedSuccessfulText(String value1, String value2) {
-        System.out.println(value1 + value2);
-        Assert.assertEquals(value1 + value2, productPage.getAddedToCartSuccessfulText());
+        System.out.println(productPage.getAddedToCartSuccessfulText());
+        System.out.println(value1 + adminAddProductPage.getProductNameMemo() + value2);
+        Assert.assertEquals(value1 + adminAddProductPage.getProductNameMemo() + value2, productPage.getAddedToCartSuccessfulText());
     }
 
     @Step
@@ -29,7 +31,7 @@ public class AddToCartSteps {
     }
 
     @Step
-    public void checkItemIsInCart(){
+    public void checkItemIsInCart() {
         Assert.assertTrue(cartPage.isProductWasAddedSuccessful(adminAddProductPage.getProductNameMemo()));
     }
 }

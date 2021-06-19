@@ -14,12 +14,11 @@ public class AdminLogOutTest extends BaseTest {
     @Steps
     private AdminLoginSteps adminLoginSteps;
 
+
     @Test
     public void logOutFromAdmin() {
         adminLoginSteps.doAdminLogin();
         adminLogOutSteps.logOut();
         adminLogOutSteps.checkLoggedOutSuccessfulText("You are now logged out.");
     }
-
-
 }

@@ -12,6 +12,9 @@ public class CartPage extends PageObject {
     @FindBy(css = ".cart tbody")
     private List<WebElementFacade> productList;
 
+    @FindBy(css = ".wc-proceed-to-checkout a")
+    private WebElementFacade proceedToCheckoutButton;
+
 
     public boolean isProductWasAddedSuccessful(String value) {
         for (WebElementFacade element : productList) {
@@ -20,5 +23,9 @@ public class CartPage extends PageObject {
             }
         }
         return false;
+    }
+
+    public void clickOnTheProceedToCheckoutButton() {
+        clickOn(proceedToCheckoutButton);
     }
 }

@@ -3,7 +3,6 @@ package org.fasttrackit.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.junit.Test;
 
 public class MyAccountPage extends PageObject {
 
@@ -48,6 +47,7 @@ public class MyAccountPage extends PageObject {
 
 
     String randomEmail = "";
+
 
     public void setRegisterEmailTextField(String value) {
         randomEmail = value;

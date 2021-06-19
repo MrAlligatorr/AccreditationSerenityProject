@@ -15,20 +15,12 @@ public class AddToCartTest extends BaseTest {
     private AddToCartSteps productDetailsSteps;
 
     @Steps
-    private AdminLoginSteps adminLoginSteps;
-
-    @Steps
     private AdminAddProductSteps adminAddProductSteps;
-
-    @Steps
-    private AdminLogOutSteps adminLogOutSteps;
 
 
     @Test
     public void addItemToCart(){
-        adminLoginSteps.doAdminLogin();
-        adminAddProductSteps.doAddProductFromAdmin(Constants.GENERATE_PRODUCT_NAME,Constants.GENERATE_PRICE);
-        adminLogOutSteps.doLogOutAndGoBackToSiteHomepage();
+        adminAddProductSteps.doAddProductInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME,Constants.GENERATE_PRICE);
         searchSteps.doSearchAnItemAndClickOnIt();
         productDetailsSteps.clickOnAddToCart();
         productDetailsSteps.checkForAddedSuccessfulText("“","” has been added to your cart.");

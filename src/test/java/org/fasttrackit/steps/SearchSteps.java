@@ -6,10 +6,8 @@ import org.junit.Assert;
 
 public class SearchSteps {
 
-    private AdminLoginPage adminLoginPage;
     private AdminAddProductPage adminAddProductPage;
     private HomePage homePage;
-    private AdminHomepage adminHomepage;
     private SearchResultsPage searchResultsPage;
 
 
@@ -19,19 +17,13 @@ public class SearchSteps {
     }
 
     @Step
-    public void checkItemIsFound(){
+    public void checkItemIsFound() {
         Assert.assertTrue("Item not found!", searchResultsPage.checkItemIsFound(adminAddProductPage.getProductNameMemo()));
     }
 
     @Step
-    public void doSearchAnItemAndClickOnIt(){
+    public void doSearchAnItemAndClickOnIt() {
         homePage.setSearchBarTextField(adminAddProductPage.getProductNameMemo());
         searchResultsPage.clickOnTheItem(adminAddProductPage.getProductNameMemo());
     }
-
-    @Step
-    public void clickOnTheProduct(){
-        searchResultsPage.clickOnTheItem(adminAddProductPage.getProductNameMemo());
-    }
-
 }

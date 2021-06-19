@@ -5,7 +5,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class Constants {
     public static final String USER_EMAIL = "Liviu@gmail.com";
     public static final String USER_PASSWORD = "Liviu2208";
-
     public static final String GENERATE_EMAIL = RandomStringUtils.randomAlphanumeric(1, 15) + "@gmail.com";
     public static final String GENERATE_2_CHARACTERS_PASSWORD = RandomStringUtils.randomAlphanumeric(2);
     public static final String GENERATE_4_CHARACTERS_PASSWORD = RandomStringUtils.randomAlphanumeric(4);

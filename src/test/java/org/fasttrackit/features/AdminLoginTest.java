@@ -10,6 +10,7 @@ public class AdminLoginTest extends BaseTest {
     @Steps
     private AdminLoginSteps adminLoginSteps;
 
+
     @Test
     public void adminLoginWithValidCredentials() {
         adminLoginSteps.navigateToAdminLogin();

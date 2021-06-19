@@ -38,7 +38,7 @@ public class AdminLoginPage extends PageObject {
         return logOutText.getText();
     }
 
-    public void clickOnTheBackToSiteButton(){
+    public void clickOnTheBackToSiteButton() {
         clickOn(backToSiteButton);
     }
 }

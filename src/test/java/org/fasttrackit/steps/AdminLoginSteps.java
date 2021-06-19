@@ -12,6 +12,7 @@ public class AdminLoginSteps {
     private AdminLoginPage adminLoginPage;
     private AdminHomepage adminHomepage;
 
+
     @Step
     public void navigateToAdminLogin() {
         homePage.open();
@@ -42,5 +43,4 @@ public class AdminLoginSteps {
         adminLoginPage.setPasswordTextField("parola11");
         adminLoginPage.clickOnTheLoginButton();
     }
-
 }

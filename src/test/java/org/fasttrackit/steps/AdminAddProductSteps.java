@@ -3,12 +3,16 @@ package org.fasttrackit.steps;
 import net.thucydides.core.annotations.Step;
 import org.fasttrackit.pages.AdminAddProductPage;
 import org.fasttrackit.pages.AdminHomepage;
+import org.fasttrackit.pages.AdminLoginPage;
+import org.fasttrackit.pages.HomePage;
 import org.junit.Assert;
 
 public class AdminAddProductSteps {
 
     private AdminHomepage adminHomepage;
     private AdminAddProductPage adminAddProductPage;
+    private HomePage homePage;
+    private AdminLoginPage adminLoginPage;
 
 
     @Step
@@ -38,11 +42,20 @@ public class AdminAddProductSteps {
     }
 
     @Step
-    public void doAddProductFromAdmin(String productName, String productPrice) {
+    public void doAddProductInAdminAndLogOut(String productName, String productPrice) {
+        homePage.open();
+        homePage.clickOnTheAdminLoginButton();
+        adminLoginPage.setUsernameTextField("admin");
+        adminLoginPage.setPasswordTextField("parola11");
+        adminLoginPage.clickOnTheLoginButton();
         adminHomepage.hoverOverProduct();
         adminHomepage.clickOnTheAddProductButton();
         adminAddProductPage.setProductNameTextField(productName);
         adminAddProductPage.setRegularPriceTextField(productPrice);
         adminAddProductPage.clickOnThePublishButton();
+        adminAddProductPage.waitForThePublishedSuccessfulText();
+        adminHomepage.hoverOnTheProfileAdminButton();
+        adminHomepage.clickOnTheLogOutButton();
+        adminLoginPage.clickOnTheBackToSiteButton();
     }
 }
