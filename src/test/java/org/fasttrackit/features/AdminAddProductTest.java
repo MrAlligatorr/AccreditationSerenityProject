@@ -25,4 +25,19 @@ public class AdminAddProductTest extends BaseTest {
         adminAddProductSteps.addItem();
         adminAddProductSteps.checkProductPublishedText("Product published. View Product");
     }
+
+    @Test
+    public void add2productsToTheCatalog(){
+        adminLoginSteps.doAdminLogin();
+        adminAddProductSteps.navigateToAddProductPage();
+        adminAddProductSteps.setProductName(Constants.GENERATE_PRODUCT_NAME);
+        adminAddProductSteps.setProductRegularPrice(Constants.GENERATE_PRICE);
+        adminAddProductSteps.addItem();
+        adminAddProductSteps.checkProductPublishedText("Product published. View Product");
+        adminAddProductSteps.clickOnAddNewButton();
+        adminAddProductSteps.setProductName(Constants.GENERATE_PRODUCT_NAME);
+        adminAddProductSteps.setProductRegularPrice(Constants.GENERATE_PRICE);
+        adminAddProductSteps.addItem();
+        adminAddProductSteps.checkProductPublishedText("Product published. View Product");
+    }
 }

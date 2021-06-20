@@ -15,6 +15,9 @@ public class ProductPage extends PageObject {
     @FindBy(css = ".wc-forward")
     private WebElementFacade viewCartButton;
 
+    @FindBy(css = ".search-field")
+    private WebElementFacade searchField;
+
 
     public void clickOnTheAddToCartButton() {
         clickOn(addToCartButton);
@@ -27,5 +30,9 @@ public class ProductPage extends PageObject {
 
     public void clickOnTheViewCartButton() {
         clickOn(viewCartButton);
+    }
+
+    public void setSearchField(String value){
+        typeInto(searchField,value+"\n");
     }
 }

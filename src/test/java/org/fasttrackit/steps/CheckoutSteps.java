@@ -88,8 +88,7 @@ public class CheckoutSteps {
 
     @Step
     public void checkIfEmailAddressIsCorrect(String expected) {
-        System.out.println(orderReceivedPage.getEmail());
-        Assert.assertEquals(expected, orderReceivedPage.getEmail());
+        Assert.assertEquals(expected.toLowerCase(), orderReceivedPage.getEmail());
     }
 
     @Step

@@ -15,8 +15,40 @@ public class CartPage extends PageObject {
     @FindBy(css = ".wc-proceed-to-checkout a")
     private WebElementFacade proceedToCheckoutButton;
 
+    @FindBy(css = ".product-name a")
+    private WebElementFacade productNames;
 
-    public boolean isProductWasAddedSuccessful(String value) {
+
+    public boolean isProductAddedSuccessful(String value) {
+        for (WebElementFacade element : productList) {
+            if (element.findElement(By.cssSelector(".product-name a")).getText().equals(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean areProductsAddedSuccessful(String value) {
+        for (WebElementFacade element : productList) {
+            for (int i = 0; i <= 0; i++) {
+                if (element.findElement(By.cssSelector(".product-name a:nth-child(" + i + ")")).getText().equals(value)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean isSecondProductAddedSuccessful(String value) {
+        for (WebElementFacade element : productList) {
+            if (element.findElement(By.cssSelector(".product-name a")).getText().equals(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isThirdProductAddedSuccessful(String value) {
         for (WebElementFacade element : productList) {
             if (element.findElement(By.cssSelector(".product-name a")).getText().equals(value)) {
                 return true;

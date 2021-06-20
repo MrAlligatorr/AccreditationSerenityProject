@@ -81,6 +81,6 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.clickOnTheCheckoutLoginButton();
         checkoutSteps.clickOnThePlaceOrderButton();
         checkoutSteps.checkIfEmailAddressIsCorrect(Constants.USER_EMAIL);
-        checkoutSteps.checkBillingAddressInformationIsCorrect("Andreica Razvan\nMemo 20\nCluj-Napoca\nCluj\n123456\n01111111111\n\nliviu@gmail.com");
+        checkoutSteps.checkBillingAddressInformationIsCorrect("Andreica Razvan\nMemo 20\nCluj-Napoca\nCluj\n123456\n01111111111\nliviu@gmail.com");
     }
 }

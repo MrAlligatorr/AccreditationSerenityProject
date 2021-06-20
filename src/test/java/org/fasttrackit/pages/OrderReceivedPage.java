@@ -30,6 +30,8 @@ public class OrderReceivedPage extends PageObject {
     }
 
     public String getEmail() {
+        waitForAngularRequestsToFinish();
+        waitABit(3000);
         return emailText.getText();
     }
 

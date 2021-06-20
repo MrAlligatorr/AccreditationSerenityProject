@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Step;
 import org.fasttrackit.pages.AdminAddProductPage;
 import org.fasttrackit.pages.CartPage;
 import org.fasttrackit.pages.ProductPage;
+import org.fasttrackit.pages.SearchResultsPage;
 import org.junit.Assert;
 
 public class AddToCartSteps {
@@ -11,6 +12,7 @@ public class AddToCartSteps {
     private ProductPage productPage;
     private CartPage cartPage;
     private AdminAddProductPage adminAddProductPage;
+    private SearchResultsPage searchResultsPage;
 
 
     @Step
@@ -20,9 +22,17 @@ public class AddToCartSteps {
 
     @Step
     public void checkForAddedSuccessfulText(String value1, String value2) {
-        System.out.println(productPage.getAddedToCartSuccessfulText());
-        System.out.println(value1 + adminAddProductPage.getProductNameMemo() + value2);
         Assert.assertEquals(value1 + adminAddProductPage.getProductNameMemo() + value2, productPage.getAddedToCartSuccessfulText());
+    }
+
+    @Step
+    public void checkForSecondAddedSuccessfulText(String value1, String value2) {
+        Assert.assertEquals(value1 + adminAddProductPage.getSecondProductNameMemo() + value2, productPage.getAddedToCartSuccessfulText());
+    }
+
+    @Step
+    public void checkForThirdAddedSuccessfulText(String value1, String value2) {
+        Assert.assertEquals(value1 + adminAddProductPage.getThirdProductNameMemo() + value2, productPage.getAddedToCartSuccessfulText());
     }
 
     @Step
@@ -32,6 +42,37 @@ public class AddToCartSteps {
 
     @Step
     public void checkItemIsInCart() {
-        Assert.assertTrue(cartPage.isProductWasAddedSuccessful(adminAddProductPage.getProductNameMemo()));
+        Assert.assertTrue(cartPage.isProductAddedSuccessful(adminAddProductPage.getProductNameMemo()));
+    }
+
+    @Step
+    public void searchTheSecondItemWithTheProductPageSearchBarAndClickOnIt() {
+        productPage.setSearchField(adminAddProductPage.getSecondProductNameMemo());
+        searchResultsPage.clickOnTheItem(adminAddProductPage.getSecondProductNameMemo());
+    }
+
+    @Step
+    public void searchTheThirdItemWithTheProductPageSearchBarAndClickOnIt() {
+        productPage.setSearchField(adminAddProductPage.getThirdProductNameMemo());
+        searchResultsPage.clickOnTheItem(adminAddProductPage.getThirdProductNameMemo());
+    }
+
+
+    @Step
+    public void checkItemsAreAddedSuccessful() {
+        Assert.assertTrue(cartPage.areProductsAddedSuccessful(adminAddProductPage.getProductNameMemo()));
+        Assert.assertTrue(cartPage.areProductsAddedSuccessful(adminAddProductPage.getSecondProductNameMemo()));
+        Assert.assertTrue(cartPage.areProductsAddedSuccessful(adminAddProductPage.getThirdProductNameMemo()));
+    }
+
+
+    @Step
+    public void checkSecondItemIsInCart() {
+        Assert.assertTrue("Doesn't exist",cartPage.isSecondProductAddedSuccessful(adminAddProductPage.getSecondProductNameMemo()));
+    }
+
+    @Step
+    public void checkThirdItemIsInCart() {
+        Assert.assertTrue(cartPage.isThirdProductAddedSuccessful(adminAddProductPage.getThirdProductNameMemo()));
     }
 }

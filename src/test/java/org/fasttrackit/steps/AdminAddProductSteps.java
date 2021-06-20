@@ -34,6 +34,7 @@ public class AdminAddProductSteps {
     @Step
     public void addItem() {
         adminAddProductPage.clickOnThePublishButton();
+        adminAddProductPage.waitForThePublishedSuccessfulText();
     }
 
     @Step
@@ -57,5 +58,39 @@ public class AdminAddProductSteps {
         adminHomepage.hoverOnTheProfileAdminButton();
         adminHomepage.clickOnTheLogOutButton();
         adminLoginPage.clickOnTheBackToSiteButton();
+    }
+
+    @Step
+    public void doAdd3ProductsInAdminAndLogOut(String firstProductName, String firstProductPrice, String secondProductName,
+                                               String secondProductPrice, String thirdProductName, String thirdProductPrice) {
+        homePage.open();
+        homePage.clickOnTheAdminLoginButton();
+        adminLoginPage.setUsernameTextField("admin");
+        adminLoginPage.setPasswordTextField("parola11");
+        adminLoginPage.clickOnTheLoginButton();
+        adminHomepage.hoverOverProduct();
+        adminHomepage.clickOnTheAddProductButton();
+        adminAddProductPage.setProductNameTextField(firstProductName);
+        adminAddProductPage.setRegularPriceTextField(firstProductPrice);
+        adminAddProductPage.clickOnThePublishButton();
+        adminAddProductPage.waitForThePublishedSuccessfulText();
+        adminAddProductPage.clickOnAddNewButton();
+        adminAddProductPage.setSecondProductNameTextField(secondProductName);
+        adminAddProductPage.setSecondRegularPriceTextField(secondProductPrice);
+        adminAddProductPage.clickOnThePublishButton();
+        adminAddProductPage.waitForThePublishedSuccessfulText();
+        adminAddProductPage.clickOnAddNewButton();
+        adminAddProductPage.setThirdProductNameTextField(thirdProductName);
+        adminAddProductPage.setThirdRegularPriceTextField(thirdProductPrice);
+        adminAddProductPage.clickOnThePublishButton();
+        adminAddProductPage.waitForThePublishedSuccessfulText();
+        adminHomepage.hoverOnTheProfileAdminButton();
+        adminHomepage.clickOnTheLogOutButton();
+        adminLoginPage.clickOnTheBackToSiteButton();
+    }
+
+    @Step
+    public void clickOnAddNewButton() {
+        adminAddProductPage.clickOnAddNewButton();
     }
 }

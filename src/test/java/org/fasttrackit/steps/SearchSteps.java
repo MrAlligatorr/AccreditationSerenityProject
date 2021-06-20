@@ -26,4 +26,9 @@ public class SearchSteps {
         homePage.setSearchBarTextField(adminAddProductPage.getProductNameMemo());
         searchResultsPage.clickOnTheItem(adminAddProductPage.getProductNameMemo());
     }
+
+    @Step
+    public void clickOnTheSearchedItem() {
+        searchResultsPage.clickOnTheItem(adminAddProductPage.getProductNameMemo());
+    }
 }

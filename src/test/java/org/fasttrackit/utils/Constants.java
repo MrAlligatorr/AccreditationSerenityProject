@@ -11,4 +11,8 @@ public class Constants {
     public static final String GENERATE_9_CHARACTERS_PASSWORD = RandomStringUtils.randomAlphanumeric(9);
     public static final String GENERATE_PRODUCT_NAME = RandomStringUtils.randomAlphanumeric(5, 15);
     public static final String GENERATE_PRICE = RandomStringUtils.randomNumeric(1, 4);
+    public static final String GENERATE_SECOND_PRODUCT_NAME = RandomStringUtils.randomAlphanumeric(5, 15);
+    public static final String GENERATE_SECOND_PRICE = RandomStringUtils.randomNumeric(1, 4);
+    public static final String GENERATE_THIRD_PRODUCT_NAME = RandomStringUtils.randomAlphanumeric(5, 15);
+    public static final String GENERATE_THIRD_PRICE = RandomStringUtils.randomNumeric(1, 4);
 }
