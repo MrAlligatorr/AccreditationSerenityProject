@@ -25,7 +25,7 @@ public class CheckoutTest extends BaseTest {
 
 
     @Test
-    public void checkoutWithValidCredentialsWithBeingLoggedIn() {
+    public void checkoutWithValidCredentialsWithoutBeingLoggedIn() {
         adminAddProductSteps.doAddProductInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME, Constants.GENERATE_PRICE);
         searchSteps.doSearchAnItemAndClickOnIt();
         productDetailsSteps.clickOnAddToCart();
@@ -57,16 +57,27 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void checkoutWithInvalidPhoneAndEmailAddressFormat() {
+    public void checkoutWithInvalidPhoneFormat() {
         adminAddProductSteps.doAddProductInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME, Constants.GENERATE_PRICE);
         searchSteps.doSearchAnItemAndClickOnIt();
         productDetailsSteps.clickOnAddToCart();
         productDetailsSteps.clickOnViewCart();
         checkoutSteps.clickOnProceedToCheckout();
-        checkoutSteps.enterPhoneAndEmailAddress("invalid", "123");
+        checkoutSteps.enterPhoneNumber("invalid");
         checkoutSteps.clickOnThePlaceOrderButton();
-        checkoutSteps.checkErrorText("Billing Phone is not a valid phone number.\n" +
-                "Billing Email address is not a valid email address.");
+        checkoutSteps.checkErrorText("Billing Phone is not a valid phone number.");
+    }
+
+    @Test
+    public void checkoutWithInvalidEmailAddressFormat() {
+        adminAddProductSteps.doAddProductInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME, Constants.GENERATE_PRICE);
+        searchSteps.doSearchAnItemAndClickOnIt();
+        productDetailsSteps.clickOnAddToCart();
+        productDetailsSteps.clickOnViewCart();
+        checkoutSteps.clickOnProceedToCheckout();
+        checkoutSteps.enterEmailAddressNumber("123");
+        checkoutSteps.clickOnThePlaceOrderButton();
+        checkoutSteps.checkErrorText("Billing Email address is not a valid email address.");
     }
 
     @Test

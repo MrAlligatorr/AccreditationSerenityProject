@@ -33,7 +33,6 @@ public class RegisterSteps {
         myAccountPage.clickOnTheRegisterButton();
     }
 
-
     @Step
     public void checkEmptyEmailFieldErrorText(String expectedText) {
         Assert.assertEquals(expectedText, myAccountPage.checkErrorText());
@@ -57,5 +56,21 @@ public class RegisterSteps {
     @Step
     public void checkWeakPasswordText(String expectedText) {
         Assert.assertEquals(expectedText, myAccountPage.checkWeakPasswordText());
+    }
+
+    @Step
+    public void checkErrorTextForMoreThanCharactersThanTheLimit(String value){
+        Assert.assertEquals(value,myAccountPage.checkErrorText() );
+    }
+
+    @Step
+    public void enterCredentials(String email, String password){
+        myAccountPage.setRegisterEmailTextField(email);
+        myAccountPage.setRegisterPasswordTextField(password);
+    }
+
+    @Step
+    public void checkExistingAccountText(String expected){
+       Assert.assertEquals(expected, myAccountPage.checkErrorText());
     }
 }

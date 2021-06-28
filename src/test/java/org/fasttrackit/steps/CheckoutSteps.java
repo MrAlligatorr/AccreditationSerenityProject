@@ -53,7 +53,7 @@ public class CheckoutSteps {
     }
 
     @Step
-    public void enterPhoneAndEmailAddress(String phoneNumber, String emailAddress) {
+    public void enterPhoneNumber(String phoneNumber) {
         checkoutPage.setFirstNameTextField("Betty");
         checkoutPage.setLastNameTextField("Bug");
         checkoutPage.selectCountry("Romania");
@@ -62,6 +62,19 @@ public class CheckoutSteps {
         checkoutPage.selectCounty("Cluj");
         checkoutPage.setPostcodeOrZIPTextField("234525");
         checkoutPage.setPhoneTextField(phoneNumber);
+        checkoutPage.setEmailAddressTextField("Hey@gmail.com");
+    }
+
+    @Step
+    public void enterEmailAddressNumber(String emailAddress) {
+        checkoutPage.setFirstNameTextField("Betty");
+        checkoutPage.setLastNameTextField("Bug");
+        checkoutPage.selectCountry("Romania");
+        checkoutPage.setStreetAddressTextField("Hey 20");
+        checkoutPage.setTownOrCityTextField("HappyTown");
+        checkoutPage.selectCounty("Cluj");
+        checkoutPage.setPostcodeOrZIPTextField("234525");
+        checkoutPage.setPhoneTextField("01111111111");
         checkoutPage.setEmailAddressTextField(emailAddress);
     }
 

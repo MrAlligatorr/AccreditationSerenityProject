@@ -57,22 +57,10 @@ public class AddToCartSteps {
         searchResultsPage.clickOnTheItem(adminAddProductPage.getThirdProductNameMemo());
     }
 
-
     @Step
     public void checkItemsAreAddedSuccessful() {
-        Assert.assertTrue(cartPage.areProductsAddedSuccessful(adminAddProductPage.getProductNameMemo()));
-        Assert.assertTrue(cartPage.areProductsAddedSuccessful(adminAddProductPage.getSecondProductNameMemo()));
-        Assert.assertTrue(cartPage.areProductsAddedSuccessful(adminAddProductPage.getThirdProductNameMemo()));
-    }
-
-
-    @Step
-    public void checkSecondItemIsInCart() {
-        Assert.assertTrue("Doesn't exist",cartPage.isSecondProductAddedSuccessful(adminAddProductPage.getSecondProductNameMemo()));
-    }
-
-    @Step
-    public void checkThirdItemIsInCart() {
-        Assert.assertTrue(cartPage.isThirdProductAddedSuccessful(adminAddProductPage.getThirdProductNameMemo()));
+        Assert.assertTrue(cartPage.isProductAddedSuccessful(adminAddProductPage.getProductNameMemo()));
+        Assert.assertTrue(cartPage.isProductAddedSuccessful(adminAddProductPage.getSecondProductNameMemo()));
+        Assert.assertTrue(cartPage.isProductAddedSuccessful(adminAddProductPage.getThirdProductNameMemo()));
     }
 }

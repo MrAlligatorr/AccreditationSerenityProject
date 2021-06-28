@@ -13,7 +13,7 @@ public class LoginTest extends BaseTest {
 
 
     @Test
-    public void logInWithValidCredentials() {
+    public void loginWithValidCredentials() {
         loginSteps.navigateToMyAccount();
         loginSteps.enterCredentials(Constants.USER_EMAIL, Constants.USER_PASSWORD);
         loginSteps.clickOnTheLoginButton();

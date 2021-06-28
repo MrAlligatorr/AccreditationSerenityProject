@@ -80,6 +80,8 @@ public class CheckoutPage extends PageObject {
     }
 
     public void clickOnThePlaceOrderButton() {
+        waitForAngularRequestsToFinish();
+        waitABit(2000);
         clickOn(placeOrderButton);
     }
 

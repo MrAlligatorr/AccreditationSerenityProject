@@ -4,7 +4,6 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
-import java.util.List;
 
 public class AdminAddProductPage extends PageObject {
 
@@ -30,18 +29,14 @@ public class AdminAddProductPage extends PageObject {
     private static String secondProductPriceMemo = "";
     private static String thirdProductNameMemo = "";
     private static String thirdProductPriceMemo = "";
-//    private static List<String> listProductsNameMemo;
-//    private static List<String> listProductsPriceMemo;
 
 
     public void setProductNameTextField(String value) {
-//        listProductsNameMemo.add(value);
         productNameMemo = value;
         typeInto(productNameTextField, value);
     }
 
     public void setRegularPriceTextField(String value) {
-//        listProductsPriceMemo.add(value);
         productPriceMemo = value;
         typeInto(waitFor(regularPriceTextField), value);
     }
@@ -52,7 +47,6 @@ public class AdminAddProductPage extends PageObject {
     }
 
     public void setSecondRegularPriceTextField(String value) {
-        ;
         secondProductPriceMemo = value;
         typeInto(waitFor(regularPriceTextField), value);
     }
@@ -108,20 +102,4 @@ public class AdminAddProductPage extends PageObject {
     public void clickOnAddNewButton() {
         clickOn(addNewButton);
     }
-
-//    public String getListProductsNameMemo(){
-//        return listProductsNameMemo.get(getIndex());
-//    }
-//
-//    public String getListProductsPriceMemo(){
-//        return listProductsPriceMemo.get(getIndex());
-//    }
-//
-//    public int getIndex(){
-//        int index=0;
-//        for (int i=0; i<listProductsNameMemo.size(); i++) {
-//            index=i;
-//            break;
-//        }return index;
-//    }
 }

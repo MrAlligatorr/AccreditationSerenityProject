@@ -48,4 +48,20 @@ public class RegisterTest extends BaseTest {
         registerSteps.enterValidCredentials(Constants.GENERATE_EMAIL, Constants.GENERATE_4_CHARACTERS_PASSWORD);
         registerSteps.checkWeakPasswordText("Weak - Please enter a stronger password.");
     }
+
+    @Test
+    public void registerWithAnEmailOverTheCharacterLimit() {
+        registerSteps.navigateToMyAccountPage();
+        registerSteps.enterCredentials(Constants.GENERATE_EMAIL_WITH_OVER_LIMIT_CHARACTERS, Constants.GENERATE_9_CHARACTERS_PASSWORD);
+        registerSteps.clickOnTheRegisterButton();
+        registerSteps.checkErrorTextForMoreThanCharactersThanTheLimit("Error: Error: Couldn’t register you… please contact us if you continue to have problems.");
+    }
+
+    @Test
+    public void registerWithExistingAccount() {
+        registerSteps.navigateToMyAccountPage();
+        registerSteps.enterValidCredentials(Constants.USER_EMAIL, Constants.USER_PASSWORD);
+        registerSteps.clickOnTheRegisterButton();
+        registerSteps.checkExistingAccountText("Error: An account is already registered with your email address. Please log in.");
+    }
 }

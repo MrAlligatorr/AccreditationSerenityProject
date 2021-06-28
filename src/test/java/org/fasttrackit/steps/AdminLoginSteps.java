@@ -20,7 +20,7 @@ public class AdminLoginSteps {
     }
 
     @Step
-    public void setValidCredentials(String username, String password) {
+    public void setCredentials(String username, String password) {
         adminLoginPage.setUsernameTextField(username);
         adminLoginPage.setPasswordTextField(password);
     }
@@ -42,5 +42,20 @@ public class AdminLoginSteps {
         adminLoginPage.setUsernameTextField("admin");
         adminLoginPage.setPasswordTextField("parola11");
         adminLoginPage.clickOnTheLoginButton();
+    }
+
+    @Step
+    public void checkErrorTextIsCorrect(String value){
+        Assert.assertEquals(value, adminLoginPage.getErrorText());
+    }
+
+    @Step
+    public void setEmail(String value){
+        adminLoginPage.setUsernameTextField(value);
+    }
+
+    @Step
+    public void setPassword(String value){
+        adminLoginPage.setPasswordTextField(value);
     }
 }

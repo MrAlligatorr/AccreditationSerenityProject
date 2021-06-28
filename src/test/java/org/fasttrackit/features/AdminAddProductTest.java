@@ -27,7 +27,7 @@ public class AdminAddProductTest extends BaseTest {
     }
 
     @Test
-    public void add2productsToTheCatalog(){
+    public void add2productsToTheCatalog() {
         adminLoginSteps.doAdminLogin();
         adminAddProductSteps.navigateToAddProductPage();
         adminAddProductSteps.setProductName(Constants.GENERATE_PRODUCT_NAME);

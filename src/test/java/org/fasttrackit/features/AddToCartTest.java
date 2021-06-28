@@ -19,28 +19,28 @@ public class AddToCartTest extends BaseTest {
 
 
     @Test
-    public void addItemToCart(){
-        adminAddProductSteps.doAddProductInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME,Constants.GENERATE_PRICE);
+    public void addProductToTheCart() {
+        adminAddProductSteps.doAddProductInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME, Constants.GENERATE_PRICE);
         searchSteps.doSearchAnItemAndClickOnIt();
         productDetailsSteps.clickOnAddToCart();
-        productDetailsSteps.checkForAddedSuccessfulText("“","” has been added to your cart.");
+        productDetailsSteps.checkForAddedSuccessfulText("“", "” has been added to your cart.");
         productDetailsSteps.clickOnViewCart();
         productDetailsSteps.checkItemIsInCart();
     }
 
     @Test
-    public void add3ItemsInTheCart(){
-        adminAddProductSteps.doAdd3ProductsInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME,Constants.GENERATE_PRICE,Constants.GENERATE_SECOND_PRODUCT_NAME,
-                Constants.GENERATE_SECOND_PRICE,Constants.GENERATE_THIRD_PRODUCT_NAME,Constants.GENERATE_THIRD_PRICE);
+    public void add3ProductsInTheCart() {
+        adminAddProductSteps.doAdd3ProductsInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME, Constants.GENERATE_PRICE, Constants.GENERATE_SECOND_PRODUCT_NAME,
+                Constants.GENERATE_SECOND_PRICE, Constants.GENERATE_THIRD_PRODUCT_NAME, Constants.GENERATE_THIRD_PRICE);
         searchSteps.doSearchAnItemAndClickOnIt();
         productDetailsSteps.clickOnAddToCart();
-        productDetailsSteps.checkForAddedSuccessfulText("“","” has been added to your cart.");
+        productDetailsSteps.checkForAddedSuccessfulText("“", "” has been added to your cart.");
         productDetailsSteps.searchTheSecondItemWithTheProductPageSearchBarAndClickOnIt();
         productDetailsSteps.clickOnAddToCart();
-        productDetailsSteps.checkForSecondAddedSuccessfulText("“","” has been added to your cart.");
+        productDetailsSteps.checkForSecondAddedSuccessfulText("“", "” has been added to your cart.");
         productDetailsSteps.searchTheThirdItemWithTheProductPageSearchBarAndClickOnIt();
         productDetailsSteps.clickOnAddToCart();
-        productDetailsSteps.checkForThirdAddedSuccessfulText("“","” has been added to your cart.");
+        productDetailsSteps.checkForThirdAddedSuccessfulText("“", "” has been added to your cart.");
         productDetailsSteps.clickOnViewCart();
         productDetailsSteps.checkItemsAreAddedSuccessful();
     }

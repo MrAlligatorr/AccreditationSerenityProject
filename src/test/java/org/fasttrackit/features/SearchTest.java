@@ -17,8 +17,8 @@ public class SearchTest extends BaseTest {
 
 
     @Test
-    public void searchAProduct(){
-        adminAddProductSteps.doAddProductInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME,Constants.GENERATE_PRICE);
+    public void searchAProduct() {
+        adminAddProductSteps.doAddProductInAdminAndLogOut(Constants.GENERATE_PRODUCT_NAME, Constants.GENERATE_PRICE);
         searchSteps.enterKeywordOnTheSearchBar();
         searchSteps.checkItemIsFound();
     }

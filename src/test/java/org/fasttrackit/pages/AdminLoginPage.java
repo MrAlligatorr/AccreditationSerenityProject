@@ -21,6 +21,9 @@ public class AdminLoginPage extends PageObject {
     @FindBy(css = "#backtoblog a")
     private WebElementFacade backToSiteButton;
 
+    @FindBy(id = "login_error")
+    private WebElementFacade errorText;
+
 
     public void setUsernameTextField(String value) {
         typeInto(usernameTextField, value);
@@ -40,5 +43,9 @@ public class AdminLoginPage extends PageObject {
 
     public void clickOnTheBackToSiteButton() {
         clickOn(backToSiteButton);
+    }
+
+    public String getErrorText(){
+        return errorText.getText();
     }
 }

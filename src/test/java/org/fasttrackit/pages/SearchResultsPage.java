@@ -18,7 +18,7 @@ public class SearchResultsPage extends PageObject {
 
     public boolean checkItemIsFound(String value) {
         for (WebElementFacade element : productNameList) {
-            if (element.findElement(By.cssSelector(".entry-title a")).getText().equalsIgnoreCase(value)) {
+            if (productNameButton.getText().equalsIgnoreCase(value)) {
                 return true;
             }
         }
@@ -27,8 +27,8 @@ public class SearchResultsPage extends PageObject {
 
     public boolean clickOnTheItem(String value) {
         for (WebElementFacade element : productNameList) {
-            if (element.findElement(By.cssSelector(".entry-title a")).getText().equalsIgnoreCase(value)) {
-                element.findElement(By.cssSelector(".entry-title a")).click();
+            if (productNameButton.getText().equalsIgnoreCase(value)) {
+                productNameButton.click();
                 return true;
             }
         }

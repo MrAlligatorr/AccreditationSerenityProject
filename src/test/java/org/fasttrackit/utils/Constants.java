@@ -15,4 +15,6 @@ public class Constants {
     public static final String GENERATE_SECOND_PRICE = RandomStringUtils.randomNumeric(1, 4);
     public static final String GENERATE_THIRD_PRODUCT_NAME = RandomStringUtils.randomAlphanumeric(5, 15);
     public static final String GENERATE_THIRD_PRICE = RandomStringUtils.randomNumeric(1, 4);
+    public static final String GENERATE_EMAIL_WITH_OVER_LIMIT_CHARACTERS = RandomStringUtils.randomAlphanumeric(300) + "@gmail.com";
+    public static final String GENERATE_USERNAME = RandomStringUtils.randomAlphanumeric(9);
 }
